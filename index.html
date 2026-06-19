@@ -1,1 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Clima Urbano vs. Clima Rural</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f6f8;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .header {
+            background-color: #1e3a8a;
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24pt;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 12pt;
+            color: #93c5fd;
+        }
+        
+        .intro {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 5px solid #3b82f6;
+            font-size: 11pt;
+        }
 
+        /* Layout de colunas usando tabela para garantir compatibilidade */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 15px 0;
+            margin-bottom: 25px;
+        }
+        .column-cell {
+            width: 50%;
+            vertical-align: top;<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Clima Urbano vs. Clima Rural</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f6f8;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .header {
+            background-color: #1e3a8a;
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24pt;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 12pt;
+            color: #93c5fd;
+        }
+        
+        .intro {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 5px solid #3b82f6;
+            font-size: 11pt;
+        }
+
+        /* Layout de colunas usando tabela para garantir compatibilidade */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 15px 0;
+            margin-bottom: 25px;
+        }
+        .column-cell {
+            width: 50%;
+            vertical-align: top;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .urbano-box { border-top: 5px solid #ef4444; background-color: #fef2f2; }
+        .rural-box { border-top: 5px solid #10b981; background-color: #ecfdf5; }
+        
+        h2 {
+            font-size: 15pt;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .urbano-box h2 { color: #991b1b; border-bottom-color: #fee2e2; }
+        .rural-box h2 { color: #065f46; border-bottom-color: #d1fae5; }
+
+        .stat-list {
+            margin-top: 15px;
+            padding: 0;
+            list-style: none;
+        }
+        .stat-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 10.5pt;
+        }
+        .stat-label {
+            font-weight: bold;
+            color: #4b5563;
+            display: inline-block;
+            width: 120px;
+        }
+
+        .table-section {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table.data-table th, table.data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 10.5pt;
+        }
+        table.data-table th {
+            background-color: #f3f4f6;
+            color: #1f2937;
+            font-weight: bold;
+        }
+
+        .details-section {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .details-section h2 {
+            border-left: 4px solid #1e3a8a;
+            padding-left: 10px;
+            border-bottom: none;
+            color: #1e3a8a;
+        }
+        
+        .highlight-box {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 11pt;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Análise Comparativa: Clima Urbano vs. Clima Rural</h1>
+        <p>A influência da intervenção humana e do uso do solo no microclima regional</p>
+    </div>
+
+    <div class="intro">
+        <p><strong>Visão Geral:</strong> A substituição da cobertura vegetal por superfícies artificiais altera drasticamente o balanço de energia, o fluxo de ventos e o ciclo hidrológico. Esta documentação apresenta de forma visual e textual as disparidades fundamentais entre os ecossistemas urbanos e rurais.</p>
+    </div>
+
+    <table class="comparison-table">
+        <tr>
+            <td class="column-cell urbano-box">
+                <h2>🏙️ Clima Urbano</h2>
+                <p>Caracterizado pela forte interferência de superfícies impermeáveis, alta densidade demográfica, poluição atmosférica e verticalização das construções.</p>
+                
+                <ul class="stat-list">
+                    <li class="stat-item"><span class="stat-label">Temperatura:</span> Elevada (Efeito de Ilhas de Calor)</li>
+                    <li class="stat-item"><span class="stat-label">Umidade:</span> Reduzida (baixa retenção de água)</li>
+                    <li class="stat-item"><span class="stat-label">Escoamento:</span> Rápido e superficial (impermeabilizado)</li>
+                    <li class="stat-item"><span class="stat-label">Ventos:</span> Canalizados ou bloqueados por prédios</li>
+                </ul>
+            </td>
+            
+            <td class="column-cell rural-box">
+                <h2>🌳 Clima Rural</h2>
+                <p>Dominado por coberturas vegetais nativas ou agrícolas, solo altamente permeável e baixa concentração de poluentes urbanos, mantendo ciclos naturais preservados.</p>
+                
+                <ul class="stat-list">
+                    <li class="stat-item"><span class="stat-label">Temperatura:</span> Amena (resfriamento noturno rápido)</li>
+                    <li class="stat-item"><span class="stat-label">Umidade:</span> Elevada (alta evapotranspiração)</li>
+                    <li class="stat-item"><span class="stat-label">Escoamento:</span> Lento com infiltração profunda no solo</li>
+                    <li class="stat-item"><span class="stat-label">Ventos:</span> Fluxo contínuo, limpo e sem barreiras</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <div class="table-section">
+        <h2>📊 Matriz de Impacto Ambiental</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Parâmetro</th>
+                    <th>Ambiente Urbano</th>
+                    <th>Ambiente Rural</th>
+                    <th>Fator Causador</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Absorção Térmica</strong></td>
+                    <td>Muito Alta</td>
+                    <td>Baixa a Moderada</td>
+                    <td>Asfalto, concreto e materiais escuros versus biomassa vegetal.</td>
+                </tr>
+                <tr>
+                    <td><strong>Qualidade do Ar</strong></td>
+                    <td>Concentração de Poluentes</td>
+                    <td>Ar Disperso e Filtrado</td>
+                    <td>Emissão de gases veiculares, industriais e barreiras de dispersão.</td>
+                </tr>
+                <tr>
+                    <td><strong>Precipitação</strong></td>
+                    <td>Pontualmente intensa</td>
+                    <td>Distribuída regularmente</td>
+                    <td>Núcleos de condensação gerados pela poluição e forte calor convectivo.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="details-section">
+        <h2>🔍 Dinâmicas de Causa e Efeito</h2>
+        <p><strong>O Fenômeno da Ilha de Calor Urbana (ICU):</strong> O concreto e o asfalto possuem alto calor específico e baixo albedo, o que significa que eles absorvem a radiação solar durante o dia e a reemitem na forma de calor de onda longa durante a noite. No meio rural, a energia solar é utilizada principalmente no processo de evapotranspiração da água presente nas plantas e no solo, convertendo calor sensível em calor latente e resfriando o ambiente naturalmente.</p>
+        
+        <div class="highlight-box">
+            📌 Resumo Direto: Enquanto a cidade retém energia gerando calor acumulado e ar seco, o campo utiliza a radiação para manter o ciclo da água, resultando em temperaturas confortáveis e maior umidade relativa.
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .urbano-box { border-top: 5px solid #ef4444; background-color: #fef2f2; }
+        .rural-box { border-top: 5px solid #10b981; background-color: #ecfdf5; }
+        
+        h2 {
+            font-size: 15pt;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .urbano-box h2 { color: #991b1b; border-bottom-color: #fee2e2; }
+        .rural-box h2 { color: #065f46; border-bottom-color: #d1fae5; }
+
+        .stat-list {
+            margin-top: 15px;
+            padding: 0;
+            list-style: none;
+        }
+        .stat-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 10.5pt;
+        }
+        .stat-label {
+            font-weight: bold;
+            color: #4b5563;
+            display: inline-block;
+            width: 120px;
+        }
+
+        .table-section {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table.data-table th, table.data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 10.5pt;
+        }
+        table.data-table th {
+            background-color: #f3f4f6;
+            color: #1f2937;
+            font-weight: bold;
+        }
+
+        .details-section {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .details-section h2 {
+            border-left: 4px solid #1e3a8a;
+            padding-left: 10px;
+            border-bottom: none;
+            color: #1e3a8a;
+        }
+        
+        .highlight-box {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 11pt;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Análise Comparativa: Clima Urbano vs. Clima Rural</h1>
+        <p>A influência da intervenção humana e do uso do solo no microclima regional</p>
+    </div>
+
+    <div class="intro">
+        <p><strong>Visão Geral:</strong> A substituição da cobertura vegetal por superfícies artificiais altera drasticamente o balanço de energia, o fluxo de ventos e o ciclo hidrológico. Esta documentação apresenta de forma visual e textual as disparidades fundamentais entre os ecossistemas urbanos e rurais.</p>
+    </div>
+
+    <table class="comparison-table">
+        <tr>
+            <td class="column-cell urbano-box">
+                <h2>🏙️ Clima Urbano</h2>
+                <p>Caracterizado pela forte interferência de superfícies impermeáveis, alta densidade demográfica, poluição atmosférica e verticalização das construções.</p>
+                
+                <ul class="stat-list">
+                    <li class="stat-item"><span class="stat-label">Temperatura:</span> Elevada (Efeito de Ilhas de Calor)</li>
+                    <li class="stat-item"><span class="stat-label">Umidade:</span> Reduzida (baixa retenção de água)</li>
+                    <li class="stat-item"><span class="stat-label">Escoamento:</span> Rápido e superficial (impermeabilizado)</li>
+                    <li class="stat-item"><span class="stat-label">Ventos:</span> Canalizados ou bloqueados por prédios</li>
+                </ul>
+            </td>
+            
+            <td class="column-cell rural-box">
+                <h2>🌳 Clima Rural</h2>
+                <p>Dominado por coberturas vegetais nativas ou agrícolas, solo altamente permeável e baixa concentração de poluentes urbanos, mantendo ciclos naturais preservados.</p>
+                
+                <ul class="stat-list">
+                    <li class="stat-item"><span class="stat-label">Temperatura:</span> Amena (resfriamento noturno rápido)</li>
+                    <li class="stat-item"><span class="stat-label">Umidade:</span> Elevada (alta evapotranspiração)</li>
+                    <li class="stat-item"><span class="stat-label">Escoamento:</span> Lento com infiltração profunda no solo</li>
+                    <li class="stat-item"><span class="stat-label">Ventos:</span> Fluxo contínuo, limpo e sem barreiras</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <div class="table-section">
+        <h2>📊 Matriz de Impacto Ambiental</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Parâmetro</th>
+                    <th>Ambiente Urbano</th>
+                    <th>Ambiente Rural</th>
+                    <th>Fator Causador</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Absorção Térmica</strong></td>
+                    <td>Muito Alta</td>
+                    <td>Baixa a Moderada</td>
+                    <td>Asfalto, concreto e materiais escuros versus biomassa vegetal.</td>
+                </tr>
+                <tr>
+                    <td><strong>Qualidade do Ar</strong></td>
+                    <td>Concentração de Poluentes</td>
+                    <td>Ar Disperso e Filtrado</td>
+                    <td>Emissão de gases veiculares, industriais e barreiras de dispersão.</td>
+                </tr>
+                <tr>
+                    <td><strong>Precipitação</strong></td>
+                    <td>Pontualmente intensa</td>
+                    <td>Distribuída regularmente</td>
+                    <td>Núcleos de condensação gerados pela poluição e forte calor convectivo.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="details-section">
+        <h2>🔍 Dinâmicas de Causa e Efeito</h2>
+        <p><strong>O Fenômeno da Ilha de Calor Urbana (ICU):</strong> O concreto e o asfalto possuem alto calor específico e baixo albedo, o que significa que eles absorvem a radiação solar durante o dia e a reemitem na forma de calor de onda longa durante a noite. No meio rural, a energia solar é utilizada principalmente no processo de evapotranspiração da água presente nas plantas e no solo, convertendo calor sensível em calor latente e resfriando o ambiente naturalmente.</p>
+        
+        <div class="highlight-box">
+            📌 Resumo Direto: Enquanto a cidade retém energia gerando calor acumulado e ar seco, o campo utiliza a radiação para manter o ciclo da água, resultando em temperaturas confortáveis e maior umidade relativa.
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
