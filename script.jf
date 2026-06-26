@@ -1,1 +1,105 @@
+/* Configurações Gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
+.container {
+    max-width: 600px;
+    width: 100%;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #2e7d32;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Card do Quiz */
+.quiz-card {
+    background: #e8f5e9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    color: #1b5e20;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Botões */
+.btn-option {
+    background-color: #ffffff;
+    border: 2px solid #a5d6a7;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.btn-option:hover {
+    background-color: #a5d6a7;
+    color: #1b5e20;
+    transform: translateY(-2px);
+}
+
+/* Resultado */
+.resultado {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #fff8e1;
+    border-left: 5px solid #ffb300;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.resultado h3 {
+    margin-top: 0;
+    color: #ff8f00;
+}
+
+.btn-reset {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.btn-reset:hover {
+    background-color: #1b5e20;
+}
+
+/* Classe utilitária para esconder elementos */
+.hidden {
+    display: none;
+}
