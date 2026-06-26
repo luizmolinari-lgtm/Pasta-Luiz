@@ -1,1 +1,25 @@
+function verificarResposta(opcao) {
+    const resultadoDiv = document.getElementById('resultado');
+    const textoResultado = document.getElementById('texto-resultado');
+    
+    // Esconde o quiz ou desabilita para focar no resultado
+    let recomendacao = "";
 
+    if (opcao === 'pequeno') {
+        recomendacao = "**Horta Urbana ou Hidroponia!** Para espaços reduzidos, você pode aproveitar paredes (jardins verticais) ou usar vasos auto-irrigáveis. A hidroponia também é ótima por economizar água e espaço.";
+    } else if (opcao === 'medio') {
+        recomendacao = "**Permacultura e Agroecologia!** Em médio espaço, você pode criar um sistema integrado: associar diferentes plantas que se ajudam mutuamente (como milho, feijão e abóbora) e fazer compostagem dos resíduos.";
+    } else if (opcao === 'grande') {
+        recomendacao = "**Sistemas Agroflorestais (SAF) ou Plantio Direto!** Para grandes áreas, integrar árvores nativas/frutíferas com plantações e gado ajuda a recuperar o solo, mantém a biodiversidade e protege contra pragas naturalmente.";
+    }
+
+    // Insere o texto e exibe a caixinha de resultado
+    textoResultado.innerHTML = recomendacao;
+    resultadoDiv.classList.remove('hidden');
+}
+
+function reiniciarQuiz() {
+    // Esconde a caixinha de resultado novamente
+    const resultadoDiv = document.getElementById('resultado');
+    resultadoDiv.classList.add('hidden');
+}
